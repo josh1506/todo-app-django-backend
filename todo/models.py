@@ -6,7 +6,6 @@ class Todo(models.Model):
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='todo')
     memo = models.CharField(max_length=50)
-    cover = models.ImageField(upload_to='todo/cover', blank=True)
     status = models.BooleanField(default=False)
     date_created = models.DateTimeField(auto_now=True)
 
