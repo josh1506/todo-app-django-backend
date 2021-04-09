@@ -16,6 +16,26 @@ class TodoView(viewsets.ModelViewSet):
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated, )
 
+    def create(self, request):
+        request.data['user'] = request.user.pk
+        serializer = self.serializer_class(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+    def update(self, request, pk=None):
+        request.data['user'] = request.user.pk
+        serializer = self.serializer_class(data=request.data)
+        serializer.is_valid(raise_exception=True)
+
+        todo_data = Todo.objects.get(id=pk)
+        todo_data.memo = request.data['memo']
+        todo_data.status = request.data['status']
+        todo_data.save()
+
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
     @action(detail=False, methods=['GET'])
     def get_user_data(self, request):
         todo_list = [self.serializer_class(
