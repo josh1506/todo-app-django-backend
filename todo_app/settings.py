@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import environ
-import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -32,8 +31,6 @@ DEBUG = False
 ALLOWED_HOSTS = ['https://todo-app-django-server.herokuapp.com',
                  'todo-app-django-server.herokuapp.com',
                  'todo-app-website.herokuapp.com']
-
-django_heroku.settings(locals())
 
 # Application definition
 
