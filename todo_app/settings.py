@@ -28,8 +28,8 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1',
-                 'todo-app-django-server.herokuapp.com',
+ALLOWED_HOSTS = ['todo-app-django-server.herokuapp.com',
+                 '127.0.0.1',
                  'todo-app-website.herokuapp.com']
 
 
