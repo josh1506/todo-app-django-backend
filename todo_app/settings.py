@@ -66,7 +66,8 @@ REST_FRAMEWORK = {
 }
 
 
-CORS_ALLOWED_ORIGINS = ['https://todo-app-website.herokuapp.com', ]
+CORS_ALLOWED_ORIGINS = ['todo-app-django-server.herokuapp.com',
+                        'https://todo-app-website.herokuapp.com', ]
 CORS_ALLOW_HEADERS = [
     'Authentication',
     'accept',
